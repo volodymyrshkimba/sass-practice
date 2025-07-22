@@ -1,0 +1,19 @@
+ul > {
+  li {
+    list-style: none;
+  }
+}
+
+h2 {
+  + p {
+    border: 1px solid gray;
+  }
+}
+
+p {
+  ~ {
+    span {
+      opacity: 0.8;
+    }
+  }
+}
