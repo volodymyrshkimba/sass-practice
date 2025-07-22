@@ -1,0 +1,25 @@
+$value: 600px;
+$name: "section";
+$margin: 100px;
+
+.box {
+  width: (600px / 5);
+  margin: $margin * 2;
+  padding: calc(#{$margin} * 2);
+}
+
+.#{$name} {
+  margin: $margin;
+}
+
+$status: (
+  "completed": "#1s134s",
+  "ended": "#11d111",
+  "active": "#090211",
+);
+
+@each $name, $color in $status {
+  .box-#{$name} {
+    background-color: $color;
+  }
+}
