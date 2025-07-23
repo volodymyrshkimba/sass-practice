@@ -1,0 +1,110 @@
+// Version 1
+
+// .notification {
+//   display: flex;
+//   align-items: center;
+//   gap: 20px;
+
+//   width: 480px;
+//   padding: 20px;
+
+//   color: #fafafb;
+//   font-size: 16px;
+//   line-height: 20px;
+//   letter-spacing: 0.5px;
+
+//   background-color: #92929d;
+//   border-radius: 6px;
+
+//   margin-bottom: 10px;
+// }
+
+// .notification-primary {
+//   background-color: orange;
+// }
+
+// .notification-success {
+//   background-color: green;
+// }
+
+// .notification-info {
+//   background-color: blue;
+// }
+
+// Version 2
+
+// .notification {
+//   display: flex;
+//   align-items: center;
+//   gap: 20px;
+
+//   width: 480px;
+//   padding: 20px;
+
+//   color: #fafafb;
+//   font-size: 16px;
+//   line-height: 20px;
+//   letter-spacing: 0.5px;
+
+//   background-color: #92929d;
+//   border-radius: 6px;
+
+//   margin-bottom: 10px;
+// }
+
+// .notification-primary {
+//   @extend .notification;
+
+//   background-color: orange;
+// }
+
+// .notification-success {
+//   @extend .notification;
+
+//   background-color: green;
+// }
+
+// .notification-info {
+//   @extend .notification;
+
+//   background-color: blue;
+// }
+
+// Version 3
+
+%notification {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 480px;
+  padding: 20px;
+
+  color: #fafafb;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+
+  background-color: #92929d;
+  border-radius: 6px;
+
+  margin-bottom: 10px;
+}
+
+.notification-primary {
+  @extend %notification;
+
+  background-color: orange;
+}
+
+.notification-success {
+  @extend %notification;
+
+  background-color: green;
+}
+
+.notification-info {
+  @extend %notification;
+
+  background-color: blue;
+}
