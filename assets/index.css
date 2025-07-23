@@ -1,34 +1,86 @@
-.notification-info, .notification-success, .notification-primary {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-          align-items: center;
-  gap: 20px;
-  width: 480px;
-  padding: 20px;
-  color: #fafafb;
-  font-size: 16px;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  background-color: #92929d;
-  border-radius: 6px;
-  margin-bottom: 10px;
+.btn-success {
+  border: 2px solid lightgreen;
+  color: lightgreen;
 }
 
-.notification-primary {
-  background-color: orange;
+.btn-error {
+  border: 2px solid tomato;
+  color: tomato;
 }
 
-.notification-success {
-  background-color: green;
+.btn-info {
+  border: 2px solid lightblue;
+  color: lightblue;
 }
 
-.notification-info {
-  background-color: blue;
+.btn-warning {
+  border: 2px solid lightyellow;
+  color: lightyellow;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.btn-md {
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.btn-lg {
+  padding: 12px 16px;
+  border-radius: 16px;
+}
+
+.btn-xl {
+  padding: 16px 20px;
+  border-radius: 20px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  line-height: 1.5;
+  font-size: 16;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  line-height: 0.9375;
+  font-size: 16;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.button:not([disable]):hover {
+  background-color: red;
 }
 
 /* == END == */
