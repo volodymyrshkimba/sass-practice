@@ -1,27 +1,34 @@
-.small-btn {
-  color: white;
-  background-color: hotpink;
-  font-size: 10px;
-}
-
-p {
-  background-color: red;
-}
-
-/* == END == */
-body {
-  min-width: 100vh;
-  min-height: 100vh;
+.notification-info, .notification-success, .notification-primary {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
      -moz-box-align: center;
           align-items: center;
+  gap: 20px;
+  width: 480px;
+  padding: 20px;
+  color: #fafafb;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  background-color: #92929d;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
+
+.notification-primary {
+  background-color: orange;
+}
+
+.notification-success {
+  background-color: green;
+}
+
+.notification-info {
+  background-color: blue;
+}
+
+/* == END == */
