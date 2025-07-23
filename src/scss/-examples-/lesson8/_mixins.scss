@@ -1,0 +1,100 @@
+@use "sass:meta";
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin lh-fs($lh-in-px, $fs) {
+  line-height: ($lh-in-px / $fs);
+  font-size: $fs;
+}
+
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin position($type, $pos-x, $pos-y, $offset-x, $offset-y) {
+  position: $type;
+  top: $pos-y;
+  left: $pos-x;
+  transform: translate($offset-x, $offset-y);
+}
+
+@mixin position-default-params(
+  $layer-index,
+  $type: absolute,
+  $pos-x: 50%,
+  $pos-y: $pos-x,
+  $offset-x: $pos-x,
+  $offset-y: $pos-x
+) {
+  position: $type;
+  top: $pos-y;
+  left: $pos-x;
+  transform: translate(($offset-x * -1), ($offset-y * -1));
+  z-index: $layer-index;
+}
+
+@mixin btn-size($args...) {
+  @for $i from 1 through length($args) {
+    $factor: $i * 4 - 4;
+
+    #{nth($args, $i)} {
+      padding: (4px + $factor) (8px + $factor);
+      border-radius: (8px + $factor);
+    }
+  }
+}
+
+@mixin btn-type($types...) {
+  @each $name, $color in meta.keywords($types) {
+    .btn-#{$name} {
+      border: 2px solid $color;
+      color: $color;
+    }
+  }
+}
+
+@mixin hover($state) {
+  &:not([#{$state}]):hover {
+    @content;
+  }
+}
+
+@include btn-type(
+  $success: lightgreen,
+  $error: tomato,
+  $info: lightblue,
+  $warning: lightyellow
+);
+
+@include btn-size(".btn-sm", ".btn-md", ".btn-lg", ".btn-xl");
+
+.avatar {
+  @include size(150px);
+  @include lh-fs(24, 16);
+  @include position-center;
+  border-radius: 50px;
+}
+
+.icon {
+  @include size(50px);
+  @include lh-fs(15, 16);
+  @include position(absolute, 50%, 50%, -50%, -50%);
+  border-radius: 20px;
+}
+
+.box {
+  @include position-default-params(100);
+  //   @include position-default-params(100, $offset-y: 40px);
+}
+
+.button {
+  @include hover(disable) {
+    background-color: red;
+  }
+}
