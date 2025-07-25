@@ -1,86 +1,17 @@
-.btn-success {
-  border: 2px solid lightgreen;
-  color: lightgreen;
+.fw-400 {
+  font-weight: 400;
 }
 
-.btn-error {
-  border: 2px solid tomato;
-  color: tomato;
+.fw-500 {
+  font-weight: 500;
 }
 
-.btn-info {
-  border: 2px solid lightblue;
-  color: lightblue;
+.fw-600 {
+  font-weight: 600;
 }
 
-.btn-warning {
-  border: 2px solid lightyellow;
-  color: lightyellow;
-}
-
-.btn-sm {
-  padding: 4px 8px;
-  border-radius: 8px;
-}
-
-.btn-md {
-  padding: 8px 12px;
-  border-radius: 12px;
-}
-
-.btn-lg {
-  padding: 12px 16px;
-  border-radius: 16px;
-}
-
-.btn-xl {
-  padding: 16px 20px;
-  border-radius: 20px;
-}
-
-.avatar {
-  width: 150px;
-  height: 150px;
-  line-height: 1.5;
-  font-size: 16;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: 50px;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-  line-height: 0.9375;
-  font-size: 16;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: 20px;
-}
-
-.box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 100;
-}
-
-.button:not([disable]):hover {
-  background-color: red;
+.fw-700 {
+  font-weight: 700;
 }
 
 /* == END == */
