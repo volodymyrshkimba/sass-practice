@@ -1,0 +1,48 @@
+@use "sass:math";
+
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+
+  @if $circle {
+    border-radius: 50%;
+  }
+}
+
+.cirlcle-avatar {
+  @include avatar(150px);
+}
+
+.squere-avatar {
+  @include avatar(150px, true);
+}
+
+@mixin fonts($fs, $fw: null, $lh: null, $ls: null, $align: null) {
+  font-size: $fs;
+
+  @if $fw {
+    font-weight: $fw;
+  }
+
+  @if $lh == normal {
+    line-height: normal;
+  } @else if $lh and math.unit($lh) == "px" {
+    line-height: calc($lh / $fs);
+  } @else {
+    @error "$lh value #{lh} is incorrect";
+  }
+
+  @if $ls == normal {
+    letter-spacing: normal;
+  } @else if $ls {
+    letter-spacing: #{calc($ls / $fs)}em;
+  }
+
+  @if $align {
+    text-align: $align;
+  }
+}
+
+.title {
+  @include fonts(50px, $fw: 600, $lh: 12px, $ls: 0.5px, $align: center);
+}

@@ -1,0 +1,20 @@
+$sizes: 8, 16, 20;
+
+@each $size in $sizes {
+  .p-#{$size} {
+    padding: #{$size}px;
+  }
+}
+
+$spacers: (
+  "sm": 24,
+  "md": 36,
+  "lg": 48,
+  "xl": 64,
+);
+
+@each $key, $value in $spacers {
+  .margin-#{$key} {
+    margin: #{$value}px;
+  }
+}
