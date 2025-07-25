@@ -1,5 +1,8 @@
 @use "sass:math";
 
+@use "../lesson10/decimal" as *;
+@use "../lesson10/functions" as *;
+
 @mixin avatar($size, $circle: false) {
   width: $size;
   height: $size;
@@ -26,16 +29,16 @@
 
   @if $lh == normal {
     line-height: normal;
-  } @else if $lh and math.unit($lh) == "px" {
-    line-height: calc($lh / $fs);
   } @else {
-    @error "$lh value #{lh} is incorrect";
+    $lh: calc(strip-unit($lh) / strip-unit($fs));
+    line-height: decimal-round($lh, 2);
   }
 
   @if $ls == normal {
     letter-spacing: normal;
-  } @else if $ls {
-    letter-spacing: #{calc($ls / $fs)}em;
+  } @else {
+    $ls: calc(strip-unit($ls) / strip-unit($fs));
+    letter-spacing: #{decimal-round($ls, 2)}em;
   }
 
   @if $align {
@@ -44,5 +47,5 @@
 }
 
 .title {
-  @include fonts(50px, $fw: 600, $lh: 12px, $ls: 0.5px, $align: center);
+  @include fonts(20px, $fw: 600, $lh: 12px, $ls: 1px, $align: center);
 }
