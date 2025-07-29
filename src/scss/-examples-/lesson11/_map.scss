@@ -1,0 +1,27 @@
+@use "sass:map";
+
+$colors: (
+  "primary": tomato,
+  "accent": lightgreen,
+  "secondary": lightblue,
+  "third": lightgrey,
+  "backbgound": teal,
+);
+
+.button {
+  background-color: map.get($colors, "accent");
+}
+
+@function get-color($key) {
+  @return map.get($colors, $key);
+}
+
+.box {
+  background-color: get-color(backbgound);
+}
+
+@each $key, $value in $colors {
+  .alert-#{$key} {
+    background-color: $value;
+  }
+}

@@ -1,0 +1,29 @@
+@use "sass:list";
+
+$sizes: 40px, 50px, 80px;
+
+@debug list.length($sizes);
+@debug list.nth($sizes, 1);
+
+@each $size in $sizes {
+  .size-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+$btn-types: "btn-s", "btn-m", "btn-l";
+
+@mixin generate-btn-types($types) {
+  @for $i from 1 through list.length($btn-types) {
+    .#{list.nth($btn-types, $i)} {
+      $factor: ($i * 5 + 5);
+
+      padding: 5px + $factor 10px + $factor;
+      border-radius: 10px + $factor;
+    }
+  }
+}
+
+@include generate-btn-types($btn-types);

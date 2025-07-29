@@ -16,6 +16,12 @@
   @return #{math.div(strip-unit($px-value), strip-unit($base-font-size))}rem;
 }
 
+// html {
+//   font-size: 2px;
+// }
+
 .container {
   width: rem(1000px);
+  height: rem(200px);
+  background-color: tomato;
 }
