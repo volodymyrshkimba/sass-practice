@@ -1,5 +1,29 @@
-.container {
-  width: 62.5rem;
+.button {
+  background-color: lightgreen;
+}
+
+.box {
+  background-color: teal;
+}
+
+.alert-primary {
+  background-color: tomato;
+}
+
+.alert-accent {
+  background-color: lightgreen;
+}
+
+.alert-secondary {
+  background-color: lightblue;
+}
+
+.alert-third {
+  background-color: lightgrey;
+}
+
+.alert-backbgound {
+  background-color: teal;
 }
 
 /* == END == */
