@@ -1,63 +1,12 @@
 @use "sass:map";
-@use "variables" as *;
+@use "sass:list";
 
-// Міксин для керування властивостями флекс контейнера
-// Використовується у файлі _flex.scss
-@mixin flex-center($is-column: false) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @if $is-column {
-    flex-direction: column;
-  }
-}
-
-// Міксин для стилізації плейсхолдера інпута
-@mixin placeholder {
-  &::placeholder {
-    @content;
-  }
-}
-
-// Міксин для респонсивного розміру шрифтів
-@mixin fluid-fs($min-w, $max-w, $min-fs, $max-fs) {
-  $u1: unit($min-w);
-  $u2: unit($max-w);
-  $u3: unit($min-fs);
-  $u4: unit($max-fs);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-fs;
-
-      @media only screen and (min-width: $min-w) {
-        font-size: calc(
-          #{$min-fs} + #{strip-unit($max-fs - $min-fs)} *
-            ((100vw - #{$min-w}) / #{strip-unit($max-w - $min-w)})
-        );
-      }
-
-      @media only screen and (min-width: $max-w) {
-        font-size: $max-fs;
-      }
-    }
-  } @else {
-    @error "Incompatible units. Check mixin params";
-  }
-}
-
-$breakpoints: (
-  "sm": $sm,
-  "md": $md,
-  "lg": $lg,
-  "xl": $xl,
-  "xxl": $xxl,
-) !default;
+@use "variables" as var;
+@use "functions" as fn;
 
 @mixin mq($bp: sm, $type: min, $is-retina: false) {
-  @if map.has-key($breakpoints, $bp) {
-    $width: map-get($breakpoints, $bp);
+  @if map.has-key(var.$breakpoints, $bp) {
+    $width: map.get(var.$breakpoints, $bp);
 
     @if $type == max {
       $width: $width - 0.02px;
@@ -65,14 +14,69 @@ $breakpoints: (
 
     @media only screen and (#{$type}-width: $width) {
       @if $is-retina {
-        @media (min-device-pixel-ratio: 2),
+        @media (min-device-pixel-ratio: 2px),
           (min-resolution: 192dpi),
-          (min-resolution: 2dppx) {
+          (min-resolution: 2ddpx) {
           @content;
         }
       } @else {
         @content;
       }
     }
+  }
+}
+
+@mixin frame($width, $height: $width, $is-circle: false) {
+  width: $width;
+  height: $height;
+
+  @if $is-circle {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 104px;
+
+    &:hover {
+      background-color: rgba(#ffffff, 0.3);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: fn.get-color("light-secondary");
+    background-clip: content-box;
+    border: 5px solid transparent;
+    border-radius: 100px;
+
+    &:hover {
+      background-color: fn.get-color("accent-primarys");
+    }
+  }
+}
+
+@mixin ease($ease, $properties...) {
+  @if map.has-key(var.$easings, $ease) {
+    $ease: map.get(var.$easings, $ease);
+
+    transition: $ease;
+  } @else {
+    @warn 'transition #{$ease} is not defined';
+  }
+
+  @if list.length($properties) > 0 {
+    transition-property: $properties;
   }
 }
