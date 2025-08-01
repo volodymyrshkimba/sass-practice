@@ -1,0 +1,8 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mx;
+@use "../utils/functions" as fn;
+
+.reports {
+  grid-area: reports;
+}

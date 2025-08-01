@@ -1,0 +1,20 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mx;
+@use "../utils/functions" as fn;
+
+.header {
+  display: flex;
+  align-items: center;
+
+  background-color: fn.get-color("dark-secondary");
+  box-shadow: 0px 1px 0px 0px #292932 inset;
+
+  padding: 16px;
+
+  @include mx.mq("lg") {
+    grid-area: h;
+    padding: 24px 36px;
+    justify-content: space-between;
+  }
+}
