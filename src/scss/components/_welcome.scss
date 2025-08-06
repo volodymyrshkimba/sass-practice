@@ -2,6 +2,10 @@
 @use "../utils/variables" as var;
 @use "../utils/mixins" as mx;
 @use "../utils/functions" as fn;
+@use "btn/btn" as btn with (
+  $btn-layer-spacing: 4px,
+  $btn-padding-x: 30px
+);
 
 .welcome {
   grid-area: welcome;
