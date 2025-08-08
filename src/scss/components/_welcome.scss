@@ -3,10 +3,30 @@
 @use "../utils/mixins" as mx;
 @use "../utils/functions" as fn;
 @use "btn/btn" as btn with (
-  $btn-layer-spacing: 4px,
-  $btn-padding-x: 30px
+  $btn-layer-spacing: 4px
 );
 
 .welcome {
   grid-area: welcome;
+
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.page-title {
+  &-accent {
+    @extend %section-title;
+
+    display: block;
+    margin-bottom: 8px;
+
+    color: fn.get-color("light-primary");
+
+    @include mx.mq("lg") {
+      margin-bottom: 16px;
+    }
+  }
 }
